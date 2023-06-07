@@ -1,0 +1,174 @@
+  .navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid;
+    height: 35px;
+  }
+
+  li{
+    list-style: none;
+  }
+
+  a{
+    text-decoration: none;
+    color: black;
+  }
+
+  .ticker{
+    border: solid;  
+    width: 1200px;
+    height: 400px;
+    margin: auto;
+    margin-top: 10px;
+  }
+
+  .stock-info-container{
+    border: 1px solid;
+    width: 270px;
+    height: 250px;
+  }
+
+  .stock-info{
+    display: flex;
+  }
+
+  .stock-name{
+    display: flex;
+    border: 1px solid;
+    width: 50%;
+    height: 250px;
+    font-size: 50px;
+    margin: auto;
+    align-items: center;
+  }
+
+  .stock-price{
+    border: 1px solid; 
+    width: 50%;
+    
+  }
+
+  .home-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:10px 10px;
+  }
+
+  .buy-sell{
+    display: flex;
+    flex-direction: column;
+    width: 270px;
+    border: 1px solid;
+    height: 250px;
+  }
+
+  .buy{
+    width: 270px;
+    height: 50%;
+    border: 1px solid;
+  }
+
+  .sell{
+    border: 1px solid;
+    width: 270px;
+    height: 50%;
+
+  }
+
+  .sentiment{
+    display: flex;
+    justify-content: space-between;
+    width: 270px;
+    border: 1px solid;
+    height: 125px;
+    margin: auto 0px;
+  }
+
+  .stock-logo{
+    width: 35%;
+    border: solid;
+  }
+
+  .stock-sentiment{
+    display: flex;
+    margin: auto;
+    align-items: center;
+  }
+
+/* videos */
+.videos{
+  display: flex;
+  gap:5px;
+  padding: 10px 0px;
+}
+
+/* compete */
+
+.compete{
+  display: flex;
+  width: 100%;
+  gap:5px;
+}
+
+.player{
+  border: solid;
+  width: 50%;
+  height: 40rem;
+}
+
+.bot{
+  border: solid;
+  width: 50%;
+}
+
+.graph{
+  border: 1px solid;
+  width: 80%;
+  margin: auto;
+  height: 20rem;
+}
+
+.player-footer{
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.controls{
+  display: flex;
+  border: 1px solid;
+  width: 350px;
+  height:200px;
+}
+
+.player-stock-info{
+  border: 1px solid;
+  width: 350px;
+  height: 200px;
+}
+
+.timer-container{
+  display: flex;
+  align-items: center;
+  border: 1px solid;
+  width: 350px;
+  margin: auto;
+  height: 90px;
+}
+.timer{
+  margin: auto;
+  font-size: 50px;
+}
+
+.result{
+  width: 500px;
+  height: 500px;
+  border: 1px solid;
+  position: absolute;
+  top: 60px;
+  right:520px;
+  background: red;
+
+}
