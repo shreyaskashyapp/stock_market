@@ -170,5 +170,15 @@
   top: 60px;
   right:520px;
   background: red;
+}
 
+/* bot */
+.bot-container{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  border: 1px solid;
+}
+.options{
+  border: solid;
 }

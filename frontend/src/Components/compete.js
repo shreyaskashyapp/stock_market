@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Bot from './bot'
+import Bot from './bot';
+
 export default function Compete() {
   const [timer, setTimer] = useState(60);
 
@@ -10,18 +11,15 @@ export default function Compete() {
 
     if (timer === 0) {
       clearInterval(countdown);
-      // setTimer(60);
-    //   {!timer && (<div className="result">
-    //   <h1>STATUS</h1>
-    // </div>)}
     }
+
     return () => clearInterval(countdown);
   }, [timer]);
 
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
-    return `${minutes}:${remainingSeconds}`
+    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
   };
 
   return (
@@ -30,17 +28,17 @@ export default function Compete() {
         <div className="player">
           <div className="graph">
             ticker
-      </div>
+          </div>
 
           <div className="player-footer">
             <div className="controls">
               buy/sell
-        </div>
+            </div>
 
             <div className="player-stock-info">
               bought at:
               current price:
-        </div>
+            </div>
           </div>
           <div className="timer-container">
             <div className="timer">
@@ -52,15 +50,12 @@ export default function Compete() {
         <div className="bot">
           <div className="graph">
             ticker
-      </div>
+          </div>
           <div>
-            <Bot />
+            <Bot timerExpired={timer === 0} />
           </div>
         </div>
       </div>
-      
-
     </div>
-
   );
 }
