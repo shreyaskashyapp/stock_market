@@ -1,9 +1,11 @@
 import React from 'react';
+import "../../css/intro.css"
+
 
 const Introduction = () => {
   return (
-    <div>
-      <h1>SMA Trading Algorithm</h1>
+    <div classname="sma">
+      <h5>SMA Trading Algorithm</h5>
       <p>
         The Simple Moving Average (SMA) is a widely used technical analysis tool in trading.
         It helps traders identify trends and generate buy or sell signals based on price movements.

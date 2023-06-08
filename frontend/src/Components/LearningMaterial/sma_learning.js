@@ -1,8 +1,9 @@
 import React from 'react';
+import "../../css/intro.css"
 
 const BeginnerGuide = () => {
   return (
-    <div>
+    <div className="centered-container">
       <h1>Applying SMA to Real-World Trading Data: A Beginner's Guide</h1>
       <p>
         The Simple Moving Average (SMA) is a popular technical analysis tool used by traders to identify trends and generate trading signals based on price movements. Here's how beginners can apply the SMA to real-world trading data:
@@ -12,7 +13,7 @@ const BeginnerGuide = () => {
       <p>
         Selecting an appropriate time frame is crucial when using SMA. Determine the time frame that aligns with your trading strategy. Common choices include daily, weekly, or monthly data. The time frame you choose depends on your trading goals and the duration of your trades.
       </p>
-      <img src="path_to_time_frame_image" alt="Time Frame" />
+      <img src="https://img.freepik.com/premium-vector/different-time-values-calendar-icons-set-day-week-month-year-century_705714-924.jpg?" width="500"  />
 
       <h2>Step 2: Calculate the SMA</h2>
       <p>
@@ -21,7 +22,7 @@ const BeginnerGuide = () => {
       <p>
         For example, if you're using a 50-day SMA, add up the closing prices of the last 50 days and divide the sum by 50. Repeat this calculation for each data point in your chosen time frame.
       </p>
-      <img src="path_to_sma_calculation_image" alt="SMA Calculation" />
+      <img src="https://www.wallstreetmojo.com/wp-content/uploads/2022/04/Formula-of-Simple-Moving-Average.jpg" width="600"  alt="SMA Calculation" />
 
       <h2>Step 3: Plot the SMA on a Chart</h2>
       <p>
@@ -30,7 +31,7 @@ const BeginnerGuide = () => {
       <p>
         By plotting the SMA, you can observe how it smooths out price fluctuations and identifies long-term trends.
       </p>
-      <img src="path_to_sma_chart_image" alt="SMA Chart" />
+      <img src="https://www.investopedia.com/thmb/K0UEaCXDh2pArgEt6K5ZCCbnqIE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/dotdash_INV-final-Simple-Moving-Average-SMA-May-2021-01-98751e52a2d844a795d8d11434852d7c.jpg" width="600" alt="SMA Chart" />
 
       <h2>Step 4: Identify Trading Signals</h2>
       <p>
@@ -39,7 +40,7 @@ const BeginnerGuide = () => {
       <p>
         Additionally, you can also look for support and resistance levels, where the price bounces off the SMA, indicating potential entry or exit points for trades.
       </p>
-      <img src="path_to_trading_signals_image" alt="Trading Signals" />
+      <img src="https://a.c-dn.net/c/content/igcom/en_EN/ig-financial-markets/market-news-and-analysis/trading-strategies/2018/06/15/16-candlestick-patterns-every-trader-should-know0/jcr:content/ArticleContent/image.adaptive.620.high.png/1644901896753.png" width="600" />
 
       <h2>Step 5: Combine with Other Indicators</h2>
       <p>
@@ -48,7 +49,7 @@ const BeginnerGuide = () => {
       <p>
         Remember to thoroughly analyze the overall market conditions, news events, and other factors before making trading decisions solely based on the SMA.
       </p>
-      <img src="path_to_other_indicators_image" alt="Other Indicators" />
+      <img src="https://i.ytimg.com/vi/UU4ZQF-X9jE/maxresdefault.jpg" width="600" alt="Other Indicators" />
 
       <p>
         By following these steps and gaining experience, beginners can effectively apply the SMA to real-world trading data and potentially improve their trading outcomes.

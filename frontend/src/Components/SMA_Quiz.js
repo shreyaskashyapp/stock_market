@@ -78,7 +78,7 @@ const QuizComp = () => {
     <div className='app'>
       {showScore ? (
         <div className='score-section'>
-          You have scored {score} out of {Questionbank.length}
+          <h1>You have scored {score} out of {Questionbank.length}</h1>
           <button type="submit" onClick={resetQuiz}>Play Again!!</button>
         </div>
       ) : (
