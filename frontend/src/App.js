@@ -5,6 +5,8 @@ import Learn from "./Components/learn";
 import Compete from "./Components/compete";
 import Profile from "./Components/profile";
 import Navbar from "./Components/navbar";
+import Smaquiz from "./Components/SMA_Quiz";
+
 import "./App.css";
 
 function App() {
@@ -17,6 +19,7 @@ function App() {
           <Route path="/learn" element={<Learn />} />
           <Route path="/compete" element={<Compete />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/sma_quiz" element={<Smaquiz />} />
         </Routes>
       </Router>
     </div>
