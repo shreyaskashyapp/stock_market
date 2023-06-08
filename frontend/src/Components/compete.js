@@ -56,6 +56,8 @@ export default function Compete() {
           </div>
         </div>
       </div>
+      {!timer && (<div className="result">
+        </div>)}
     </div>
   );
 }

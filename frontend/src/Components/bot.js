@@ -7,6 +7,29 @@ export default function Bot(props) {
   const [price, setPrice] = useState(0);
   const [prevPrice, setPrevPrice] = useState(0);
 
+  async function fetchPrice() {
+    const res = await fetch('http://localhost:8081');
+    const stockData = await res.json();
+    const stock = stockData.chart.result[0];
+    const currentPrice = stock.meta.regularMarketPrice.toFixed(2);
+    setPrice(currentPrice);
+    const currentTime = new Date();
+    const hours = currentTime.getHours();
+    const minutes = currentTime.getMinutes();
+    const seconds = currentTime.getSeconds();
+
+    console.log(`Current time is: ${hours}:${minutes}:${seconds}`);
+    if (prevPrice === 0) {
+      setPrevPrice(currentPrice); 
+      const currentTime = new Date();
+      const hours = currentTime.getHours();
+      const minutes = currentTime.getMinutes();
+      const seconds = currentTime.getSeconds();
+
+      console.log(`Current time is: ${hours}:${minutes}:${seconds}`);
+    }
+  }
+
   useEffect(() => {
     async function fetchData() {
       const url =
@@ -20,37 +43,29 @@ export default function Bot(props) {
   }, []);
 
   useEffect(() => {
-    async function fetchPrice() {
-      const res = await fetch('http://localhost:8081');
-      const data = await res.json();
-      console.log(data);
-      const stock = data.chart.result[0];
-      setPrice(stock.meta.regularMarketPrice.toFixed(2));
-    }
-
-    fetchPrice();
-  }, []);
-
-  useEffect(() => {
     if (props.timerExpired) {
-      if ((prevPrice > price && action === 'BUY') || (prevPrice < price && action === 'SELL')) {
-        console.log('BOT OP');
-      } else {
-        console.log('L BOT');
-      }
-      console.log(prevPrice);
-      console.log(price);
+      fetchPrice().then(() => {
+        if ((prevPrice > price && action === 'BUY') || (prevPrice < price && action === 'SELL')) {
+          console.log('BOT OP');
+        } else {
+          console.log('L BOT');
+        }
+        console.log(prevPrice);
+        console.log(price);
+      });
     }
-  }, [prevPrice, price, action, props.timerExpired]);
-
-  useEffect(() => {
-    if (props.timerExpired) {
-      setPrevPrice(price);
-    }
-  }, [props.timerExpired, price]);
+  }, [props.timerExpired, prevPrice, action, price]);
 
   function handleOptionChange(event) {
     setName(event.target.value);
+    if (event.target.value === 'SENTIMENT') {
+      if (sentiment === 'Bullish' || sentiment === 'Somewhat Bullish') {
+        setAction('BUY');
+      } else {
+        setAction('SELL');
+      }
+      fetchPrice(); 
+    }
   }
 
   return (
