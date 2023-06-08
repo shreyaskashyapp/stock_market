@@ -6,6 +6,7 @@ export default function Bot(props) {
   const [sentiment, setSentiment] = useState('');
   const [price, setPrice] = useState(0);
   const [prevPrice, setPrevPrice] = useState(0);
+  const [sum, setSum]= useState(0)
 
   async function fetchPrice() {
     const res = await fetch('http://localhost:8081');
@@ -28,6 +29,12 @@ export default function Bot(props) {
 
       console.log(`Current time is: ${hours}:${minutes}:${seconds}`);
     }
+  }
+
+  async function fetchSma() {
+    const res= await fetch("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=AAPL&apikey=Q9B5DSCXOI33L4CV.")
+    const data= await res.json()
+    return data
   }
 
   useEffect(() => {
@@ -66,7 +73,35 @@ export default function Bot(props) {
       }
       fetchPrice(); 
     }
+    if (event.target.value === 'SMA') {
+      fetchSma()
+        .then((data) => {
+          const values = data['Time Series (Daily)'];
+          const dates = Object.keys(values).slice(0, 20);
+          console.log(values['2023-06-07']);
+    
+          let tempSum = 0;
+          for (let i = 0; i < dates.length; i++) {
+            const day = values[dates[i]];
+            tempSum += parseInt(day['4. close']);
+          }
+    
+          setSum(tempSum / 20);
+          console.log(sum);
+
+          fetchPrice()
+            .then(()=>{
+              if(price>=sum){
+                setAction("BUY")
+              }
+              else{
+                setAction("SELL")
+              }
+            })
+        });
+    }
   }
+  
 
   return (
     <div>
@@ -77,6 +112,7 @@ export default function Bot(props) {
             <option value="SENTIMENT">SENTIMENT</option>
             <option value="SMA">SMA</option>
           </select>
+          {sum}
         </div>
       </div>
     </div>
