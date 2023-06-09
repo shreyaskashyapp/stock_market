@@ -31,9 +31,17 @@ export default function Compete() {
           </div>
 
           <div className="player-footer">
-            <div className="controls">
-              buy/sell
+           
+            <div className="buy-sell">
+          <div className="buy">
+          <button className='buybutt'>BUY</button>
+          </div>
+
+          <div className="sell">
+            <button className='sellbutt'>SELL</button>
+              </div>
             </div>
+            
 
             <div className="player-stock-info">
               bought at:
