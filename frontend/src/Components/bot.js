@@ -52,7 +52,7 @@ export default function Bot(props) {
   useEffect(() => {
     if (props.timerExpired) {
       fetchPrice().then(() => {
-        if ((prevPrice > price && action === 'BUY') || (prevPrice < price && action === 'SELL')) {
+        if ((prevPrice < price && action === 'BUY') || (prevPrice > price && action === 'SELL')) {
           console.log('BOT OP');
         } else {
           console.log('L BOT');
