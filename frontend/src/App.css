@@ -47,7 +47,7 @@
 
 *{
   font-family: 'Poppins', sans-serif;
-  color: white;
+  color: rgb(165, 165, 165);
   
 }
 .buy{
@@ -302,6 +302,7 @@ select{
   justify-content: space-between;
   margin: 10px;
   border: 1px solid;
+  border-radius: 4px;
 }
 .options{
   border: solid;
@@ -311,3 +312,7 @@ select{
   width: 100px;
   margin: auto;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes

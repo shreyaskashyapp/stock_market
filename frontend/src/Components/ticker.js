@@ -59,7 +59,10 @@ export default function Ticker(props) {
       },
       title: {
         text: 'CandleStick Chart',
-        align: 'left'
+        align: 'left',
+        style: {
+          color: '#ffffff' // Set the font color to white
+        }
       },
       xaxis: {
         type: 'datetime'
@@ -67,6 +70,11 @@ export default function Ticker(props) {
       yaxis: {
         tooltip: {
           enabled: true
+        },
+        labels: {
+          style: {
+            colors: ['#ffffff'] // Set the font color of the y-axis labels to white
+          }
         }
       }
     },
@@ -75,8 +83,8 @@ export default function Ticker(props) {
 
   return (
     <div>
-      {props.name}
-      {price}
+      {props.name} {price}
+      
       <Chart options={chart.options} series={chart.series} type="candlestick" width="100%" height={320} />
     </div>
   );
