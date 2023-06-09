@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Bot from './bot';
+import Ticker from './ticker'
 
 export default function Compete() {
   const [timer, setTimer] = useState(60);
@@ -27,7 +28,7 @@ export default function Compete() {
       <div className="compete">
         <div className="player">
           <div className="graph">
-            ticker
+            <Ticker name="AAPL"/>
           </div>
 
           <div className="player-footer">

@@ -28,6 +28,7 @@ export default function Ticker(props) {
       try {
         const data = await fetchPrice();
         const stock = data;
+        console.log(stock)
         setPrice(stock.meta.regularMarketPrice.toFixed(2));
         const quote = stock.indicators.quote[0];
         const prices = stock.timestamp
