@@ -55,9 +55,9 @@ export default function Home() {
   function comparePrices() {
     if (prevPrice >= price && action === 'SELL' ||prevPrice <= price && action === 'BUY') {
       console.log(`prevprice=${prevPrice} and curr=${price}`)
-      setCond('W');
+      setCond('PROFIT');
     } else {
-      setCond('L');
+      setCond('LOSS');
     }
   }
 
