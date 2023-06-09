@@ -10,8 +10,10 @@ export default function Bot(props) {
 
   async function fetchPrice() {
     const res = await fetch('http://localhost:8081');
-    const stockData = await res.json();
-    const stock = stockData.chart.result[0];
+    const Data = await res.json();
+    
+    const stock = Data
+    console.log(stock)
     const currentPrice = stock.meta.regularMarketPrice.toFixed(2);
     setPrice(currentPrice);
     const currentTime = new Date();
@@ -19,7 +21,7 @@ export default function Bot(props) {
     const minutes = currentTime.getMinutes();
     const seconds = currentTime.getSeconds();
 
-    console.log(`Current time is: ${hours}:${minutes}:${seconds}`);
+    console.log(`Current time is: ${hours}:${minutes}:${seconds}`); 
     if (prevPrice === 0) {
       setPrevPrice(currentPrice); 
       const currentTime = new Date();
