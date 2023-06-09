@@ -1,60 +1,107 @@
-import React from 'react';
+import React, { useState } from 'react';
+import '../../css/quizstyle.css';
 
-const BeginnerGuide = () => {
+const QuizComp = () => {
+  const Questionbank = [
+    {
+      Question: "What is a stock market?",
+      Answers: [
+        { Answer: "A place where people buy and sell groceries", isCorrect: false },
+        { Answer: "A physical location where stocks are stored", isCorrect: false },
+        { Answer: "A marketplace where shares of publicly traded companies are bought and sold", isCorrect: true },
+        { Answer: "A financial institution that provides loans for purchasing stocks", isCorrect: false }
+      ]
+    },
+    {
+      Question: "What is a stock?",
+      Answers: [
+        { Answer: "A type of seasoning used in cooking", isCorrect: false },
+        { Answer: "A certificate proving ownership in a company", isCorrect: true },
+        { Answer: "A tool used for gardening", isCorrect: false },
+        { Answer: "A unit of measurement for liquid volume", isCorrect: false }
+      ]
+    },
+    {
+      Question: "What is the role of a stockbroker?",
+      Answers: [
+        { Answer: "To manage a company's finances", isCorrect: false },
+        { Answer: "To represent buyers and sellers in stock market transactions", isCorrect: true },
+        { Answer: "To provide legal advice for stock market regulations", isCorrect: false },
+        { Answer: "To analyze market trends and predict stock prices", isCorrect: false }
+      ]
+    },
+    {
+      Question: "What is the stock market index?",
+      Answers: [
+        { Answer: "A ranking of the most valuable stocks in the market", isCorrect: false },
+        { Answer: "A measurement of the average price of a group of stocks", isCorrect: true },
+        { Answer: "A database containing information about all stocks", isCorrect: false },
+        { Answer: "A tool used to calculate dividends for shareholders", isCorrect: false }
+      ]
+    },
+    {
+      Question: "What is the difference between a bull market and a bear market?",
+      Answers: [
+        { Answer: "A bull market is when stock prices are rising, while a bear market is when stock prices are falling", isCorrect: true },
+        { Answer: "A bull market is when stock prices are falling, while a bear market is when stock prices are rising", isCorrect: false },
+        { Answer: "A bull market is when there is high demand for stocks, while a bear market is when there is low demand for stocks", isCorrect: false },
+        { Answer: "A bull market is when investors are pessimistic, while a bear market is when investors are optimistic", isCorrect: false }
+      ]
+    }
+  ];
+
+  // useState Hook
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [score, setScore] = useState(0);
+  const [showScore, setShowScore] = useState(false);
+
+  const handleAnswerResponse = (isCorrect) => {
+    if (isCorrect) {
+      setScore(score + 1);
+    }
+
+    const nextQuestion = currentQuestion + 1;
+    if (nextQuestion < Questionbank.length) {
+      setCurrentQuestion(nextQuestion);
+    } else {
+      setShowScore(true);
+    }
+  };
+
+  const resetQuiz = () => {
+    setCurrentQuestion(0);
+    setScore(0);
+    setShowScore(false);
+  };
+
   return (
-    <div>
-      <h1>Applying SMA to Real-World Trading Data: A Beginner's Guide</h1>
-      <p>
-        The Simple Moving Average (SMA) is a popular technical analysis tool used by traders to identify trends and generate trading signals based on price movements. Here's how beginners can apply the SMA to real-world trading data:
-      </p>
-
-      <h2>Step 1: Choose a Time Frame</h2>
-      <p>
-        Selecting an appropriate time frame is crucial when using SMA. Determine the time frame that aligns with your trading strategy. Common choices include daily, weekly, or monthly data. The time frame you choose depends on your trading goals and the duration of your trades.
-      </p>
-      <img src="path_to_time_frame_image" alt="Time Frame" />
-
-      <h2>Step 2: Calculate the SMA</h2>
-      <p>
-        Calculate the SMA by taking the average of the closing prices over a specific period. The period can vary depending on your strategy, but common choices include 50, 100, or 200 days. Sum up the closing prices for the chosen period and divide it by the number of periods. This calculation provides the SMA value for a specific point in time.
-      </p>
-      <p>
-        For example, if you're using a 50-day SMA, add up the closing prices of the last 50 days and divide the sum by 50. Repeat this calculation for each data point in your chosen time frame.
-      </p>
-      <img src="path_to_sma_calculation_image" alt="SMA Calculation" />
-
-      <h2>Step 3: Plot the SMA on a Chart</h2>
-      <p>
-        Plot the calculated SMA values on a chart along with the price data. This visualization helps you analyze the relationship between the SMA and the current price. You can use various charting tools or trading platforms to plot the SMA. Line charts or candlestick charts are commonly used for this purpose.
-      </p>
-      <p>
-        By plotting the SMA, you can observe how it smooths out price fluctuations and identifies long-term trends.
-      </p>
-      <img src="path_to_sma_chart_image" alt="SMA Chart" />
-
-      <h2>Step 4: Identify Trading Signals</h2>
-      <p>
-        Analyze the chart and look for trading signals generated by the SMA. One common strategy is to observe the crossover of the price and the SMA. When the price crosses above the SMA, it can indicate a bullish signal, suggesting it's a good time to buy. Conversely, when the price crosses below the SMA, it can indicate a bearish signal, suggesting it's a good time to sell.
-      </p>
-      <p>
-        Additionally, you can also look for support and resistance levels, where the price bounces off the SMA, indicating potential entry or exit points for trades.
-      </p>
-      <img src="path_to_trading_signals_image" alt="Trading Signals" />
-
-      <h2>Step 5: Combine with Other Indicators</h2>
-      <p>
-        To make more informed trading decisions, consider combining the SMA with other technical indicators or analysis techniques. For example, you can use volume indicators, trendlines, or oscillators to confirm or validate the signals generated by the SMA. Experiment and find a combination that works best for your trading strategy.
-      </p>
-      <p>
-        Remember to thoroughly analyze the overall market conditions, news events, and other factors before making trading decisions solely based on the SMA.
-      </p>
-      <img src="path_to_other_indicators_image" alt="Other Indicators" />
-
-      <p>
-        By following these steps and gaining experience, beginners can effectively apply the SMA to real-world trading data and potentially improve their trading outcomes.
-      </p>
+    <div className='app'>
+      {showScore ? (
+        <div className='score-section'>
+          <h1>You have scored {score} out of {Questionbank.length}</h1>
+          <button type="submit" onClick={resetQuiz}>Play Again!!</button>
+        </div>
+      ) : (
+        <React.Fragment>
+          <div className='question-section'>
+            <div className='question-count'>
+              <span>{currentQuestion + 1}</span>/{Questionbank.length}
+            </div>
+            <div className='question-text'>
+              {Questionbank[currentQuestion].Question}
+            </div>
+          </div>
+          <div className='answer-section'>
+            {Questionbank[currentQuestion].Answers.map((answer, index) => (
+              <button key={index} onClick={() => handleAnswerResponse(answer.isCorrect)}>
+                {answer.Answer}
+              </button>
+            ))}
+          </div>
+        </React.Fragment>
+      )}
     </div>
   );
 };
 
-export default BeginnerGuide;
+export default QuizComp;

@@ -75,7 +75,7 @@ const QuizComp = () => {
   };
 
   return (
-    <div className='app'>
+    <div className='appy'>
       {showScore ? (
         <div className='score-section'>
           <h1>You have scored {score} out of {Questionbank.length}</h1>
