@@ -36,10 +36,14 @@ export default function Stock(props) {
   return (
     <div className="stock-info">
       <div className="stock-name">
-        {props.name}
+      <div className='sui'>
+      {props.name}
+      </div>
       </div>
       <div className="stock-price">
+      <div className='sui1'>
         {price}
+      </div>
       </div>
     </div>
   );

@@ -49,6 +49,13 @@
   font-family: 'Poppins', sans-serif;
   
 }
+.buy{
+  color: green;
+}
+.sell{
+  color: red;
+}
+
 
   li{
     list-style: none;
@@ -60,7 +67,8 @@
   }
 
   .ticker{
-    border: solid;  
+    border: 3px solid;  
+    border-radius: 6px;
     width: 1200px;
     height: 400px;
     margin: auto;
@@ -82,15 +90,28 @@
     border: 1px solid;
     width: 50%;
     height: 250px;
-    font-size: 50px;
+    font-size: 35px;
     margin: auto;
     align-items: center;
   }
 
   .stock-price{
+    display: flex;
     border: 1px solid; 
     width: 50%;
+    text-align: center;
+    align-items: center;
     
+  }
+  .sui{
+    width: 85px;
+    
+   
+  }
+
+  .sui1{
+    width: 200px;
+    margin: auto;
   }
 
   .home-footer{
@@ -104,22 +125,63 @@
     display: flex;
     flex-direction: column;
     width: 270px;
-    border: 1px solid;
+    /* border: 1px solid; */
     height: 250px;
   }
 
   .buy{
     width: 270px;
     height: 50%;
-    border: 1px solid;
+    /* border: 1px solid; */
   }
 
   .sell{
-    border: 1px solid;
+    /* border: 1px solid; */
     width: 270px;
     height: 50%;
 
   }
+
+  .sellbutt{
+    margin-top: 1px;
+    height: 100%;
+    border: 1px solid;
+  }
+
+  
+  .sellbutt:hover {
+    background-color: #ff0000;
+    color: #fff;
+  }
+
+  .buybutt{
+    height: 100%;
+    border: 1px solid;
+  }
+
+  .buybutt:hover {
+    background-color: #16a503;
+    color: #fff;
+  }
+
+  /* body {
+    background: linear-gradient(-45deg, #000000, #440500, #3b0038, #222222);
+    background-size: 400% 400%;
+    animation: gradient 5s ease infinite;
+    height: 100vh;
+  }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  } */
 
   .sentiment{
     display: flex;

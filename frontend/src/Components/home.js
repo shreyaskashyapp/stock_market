@@ -32,11 +32,11 @@ export default function Home() {
 
         <div className="buy-sell">
           <div className="buy">
-              BUY
+          <button className='buybutt'>BUY</button>
           </div>
 
           <div className="sell">
-              SELL
+          <button className='sellbutt'>SELL</button>
           </div>
         </div>
 
