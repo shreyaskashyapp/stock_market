@@ -10,7 +10,7 @@ let latestData = null;
 
 async function fetchData(stockSymbol = "AAPL") {
   try {
-    const url = `https://query1.finance.yahoo.com/v8/finance/chart/${stockSymbol}?symbol=${stockSymbol}&period1=1634841000&period2=1660501800&useYfid=true&interval=1d&includePrePost=true&events=div%7Csplit%7Cearn&lang=en-US&region=US&crumb=m%2FlQLK.F88U&corsDomain=finance.yahoo.com`;
+    const url = `https://query1.finance.yahoo.com/v8/finance/chart/${stockSymbol}?symbol=${stockSymbol}.NS&period1=1686123799&period2=1686296599&useYfid=true&interval=1m&includePrePost=true&events=div|split|earn&lang=en-US&region=US&crumb=m/lQLK.F88U&corsDomain=finance.yahoo.com`;
     const response = await fetch(url);
     const data = await response.json();
     return data.chart.result[0]; // Assuming the stock data is available at `chart.result[0]`

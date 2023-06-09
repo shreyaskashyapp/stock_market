@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div>
       <div className="ticker">
-        Ticker
+        <Ticker name={stock}/>
       </div>
       <div>
           <select name="" id="" onChange={handleOptionsChange}>
