@@ -75,7 +75,7 @@ export default function Ticker(props) {
 
   return (
     <div>
-      Ticker
+      {props.name}
       {price}
       <Chart options={chart.options} series={chart.series} type="candlestick" width="100%" height={320} />
     </div>

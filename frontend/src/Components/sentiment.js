@@ -2,11 +2,11 @@ import react,{useState,useEffect} from 'react'
 
 
 
-export default function Sentimenet(){
+export default function Sentimenet(props){
   const[sentiment,setSentiment]= useState()
   const[news,setNews]= useState()
   async function fetchData() {
-    const url = "https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers=AAPL&topics=technology&apikey=Q9B5DSCXOI33L4CV."
+    const url = `https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers=${props.name}&topics=technology&apikey=Q9B5DSCXOI33L4CV.`
     const result = await fetch(url)
     return result.json()
   }

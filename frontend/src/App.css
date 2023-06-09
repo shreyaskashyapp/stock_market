@@ -273,6 +273,7 @@
 .timer{
   margin: auto;
   font-size: 50px;
+  width: 100px;
 }
 
 .result{
@@ -294,4 +295,8 @@
 }
 .options{
   border: solid;
+}
+.cond{
+  width: 100px;
+  margin: auto;
 }
