@@ -291,9 +291,9 @@ select{
   height: 500px;
   border: 1px solid;
   position: absolute;
-  top: 60px;
+  top: 160px;
   right:520px;
-  background: red;
+  background:black;;
 }
 
 /* bot */
@@ -306,10 +306,8 @@ select{
 .options{
   border: solid;
 }
-<<<<<<< Updated upstream
+
 .cond{
   width: 100px;
   margin: auto;
 }
-=======
->>>>>>> Stashed changes
