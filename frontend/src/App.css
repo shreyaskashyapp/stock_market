@@ -64,7 +64,7 @@
 
   a{
     text-decoration: none;
-    color: black;
+    color: white;
   }
 
   .ticker{
@@ -312,7 +312,15 @@ select{
   width: 100px;
   margin: auto;
 }
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
+.sma{    font-size: 50px;
+  width: 200px;
+  margin: auto;}
+
+.ri-apple-fill{
+  font-size: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 17vh;
+}

@@ -6,8 +6,44 @@ import Result from './result'
 export default function Compete() {
   const [timer, setTimer] = useState(10);
   const [isTimerRunning, setIsTimerRunning] = useState(false);
-  const [action, setAction]= useState()
-  
+  const [action, setAction] = useState()
+  const [prevPrice,setPrevPrice]=useState(600)
+  const [price,setPrice]= useState()
+  const [cond,setCond] = useState("STATUS")
+  const [stock,setStock]=useState("APPL")
+
+  function comparePrices() {
+    if (prevPrice >= price && action === 'SELL' || prevPrice <= price && action === 'BUY') {
+      console.log(`prevprice=${prevPrice} and curr=${price}`)
+      setCond('PROFIT');
+    } else {
+      setCond('LOSS');
+    }
+  }
+  async function fetchPrice() {
+    const res = await fetch(`http://localhost:8081/stock?symbol=${stock}`);
+    const data = await res.json();
+
+    const stockData = data;
+    console.log(stockData);
+    const currentPrice = data.stockData.meta.regularMarketPrice.toFixed(2);
+    setPrice(currentPrice);
+    const currentTime = new Date();
+    const hours = currentTime.getHours();
+    const minutes = currentTime.getMinutes();
+    const seconds = currentTime.getSeconds();
+
+    console.log(`Current time is: ${hours}:${minutes}:${seconds}`);
+    if (prevPrice === 0) {
+      setPrevPrice(currentPrice);
+      const currentTime = new Date();
+      const hours = currentTime.getHours();
+      const minutes = currentTime.getMinutes();
+      const seconds = currentTime.getSeconds();
+
+      console.log(`Current time is: ${hours}:${minutes}:${seconds}`);
+    }
+  }
   useEffect(() => {
     let countdown;
 
@@ -28,6 +64,8 @@ export default function Compete() {
     setIsTimerRunning(true);
     setAction("BUY")
     setTimer(10);
+
+
   };
 
   const handleSell = () => {
@@ -64,11 +102,6 @@ export default function Compete() {
                 </button>
               </div>
             </div>
-
-            <div className="player-stock-info">
-              bought at:
-              current price:
-            </div>
           </div>
           <div className="timer-container">
             <div className="timer">{formatTime(timer)}</div>
@@ -76,13 +109,13 @@ export default function Compete() {
         </div>
 
         <div className="bot">
-          <div className="graph">ticker</div>
+          <div className="graph"><Ticker name="AAPL" /></div>
           <div>
             <Bot timerExpired={timer === 0} />
           </div>
         </div>
       </div>
-      {!timer && <div className="result"><Result prevPrice=""/></div>}
+      {!timer && <div className="result"><Result prevPrice="180" currentPrice="180.57" botaction="BUY" playeraction={action} /></div>}
     </div>
   );
 }

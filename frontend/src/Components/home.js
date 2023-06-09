@@ -114,7 +114,7 @@ export default function Home() {
         </div>
 
         <div className="sentiment">
-          <div className="stock-logo"><img scr="https://img3.wallspic.com/previews/2/0/1/3/6/163102/163102-apple-apples-apple_logo_steve_jobs_face-logo-clip_art-x750.jpg"/></div>
+          <div className="stock-logo"><i class="ri-apple-fill"></i></div>
           <div className="stock-sentiment">
             <Sentiment name={stock} />
           </div>

@@ -35,3 +35,11 @@ h3 {
 p {
   margin: 5px 0;
 }
+
+.green{
+  background: green;
+}
+
+.red{
+  background: red;
+}

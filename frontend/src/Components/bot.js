@@ -114,8 +114,10 @@ export default function Bot(props) {
             <option value="SENTIMENT">SENTIMENT</option>
             <option value="SMA">SMA</option>
           </select>
-          {sum}
         </div>
+      </div>
+      <div className="sma">
+        {sum}
       </div>
     </div>
   );
